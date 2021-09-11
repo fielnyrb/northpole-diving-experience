@@ -7,6 +7,7 @@ public class StatusControl : MonoBehaviour
 {
     public Image oxygenBar;
     public Image healthStatus;
+    public PlayerControl player;
 
     private readonly float startDelay = 0.5f;
     private readonly float intervalBetweenExecution = 0.5f;
@@ -24,7 +25,10 @@ public class StatusControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(player.isBitten)
+        {
+            print("Is bitten");
+        }
     }
 
     void UpdateStatusBars()

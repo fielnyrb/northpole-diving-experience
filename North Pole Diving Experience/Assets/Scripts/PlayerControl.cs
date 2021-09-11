@@ -7,6 +7,7 @@ public class PlayerControl : MonoBehaviour
 {
 
     public float speed = 0.001f;
+    public bool isBitten = false;
 
     private Rigidbody2D rigidBody;
     private float movementX, movementY;
@@ -56,5 +57,13 @@ public class PlayerControl : MonoBehaviour
     {
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         isFlipped = !isFlipped;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "shark")
+        {
+            isBitten = true;
+        }
     }
 }
