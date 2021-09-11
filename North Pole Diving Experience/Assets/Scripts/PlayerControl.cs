@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerControl : MonoBehaviour
 {
 
-    public float speed = 0.001f;
+    public float speed = 1f;
     public bool isBitten = false;
 
     private Rigidbody2D rigidBody;
@@ -25,13 +25,19 @@ public class PlayerControl : MonoBehaviour
         
     }
 
+    float zVelocity;
     private void FixedUpdate()
     {
         Vector2 movement = new Vector2(movementX, movementY);
         rigidBody.AddForce(movement * speed);
 
-        Vector2 norm = rigidBody.velocity.normalized;
-        transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2(norm.y, norm.x) * Mathf.Rad2Deg);
+        //Vector2 norm = rigidBody.velocity.normalized;
+        Vector2 norm = new Vector2(movementX,movementY);
+        if(norm.magnitude > 0)
+        {
+            float zAxis = Mathf.SmoothDampAngle(transform.eulerAngles.z, Mathf.Atan2(norm.y, norm.x) * Mathf.Rad2Deg,ref zVelocity, 0.1f);
+            transform.eulerAngles = new Vector3(0, 0, zAxis);
+        }
 
         //if(norm.x < 0 && !isFlipped)
         //{
