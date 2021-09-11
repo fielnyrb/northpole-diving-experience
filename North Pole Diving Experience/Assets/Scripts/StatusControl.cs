@@ -16,7 +16,7 @@ public class StatusControl : MonoBehaviour
     private readonly float statusGood = 1;
     private readonly float statusModerate = 0.60f;
     private readonly float statusCritical = 0.35f;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,9 +27,10 @@ public class StatusControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.isBitten)
+        if (player.isBitten)
         {
-            print("Is bitten");
+            hitpoints -= 10f;
+            player.isBitten = false;
         }
     }
 
@@ -38,17 +39,24 @@ public class StatusControl : MonoBehaviour
         hitpoints -= 0.01f;
         oxygenBar.fillAmount = hitpoints;
 
+        healthStatus.color = UpdateHealthStatusColors();
+    }
+
+    private Color UpdateHealthStatusColors()
+    {
         if (hitpoints > statusModerate && hitpoints < statusGood)
         {
-            healthStatus.color = Color.green;
+            return Color.green;
         }
-        if (hitpoints > statusCritical && hitpoints < statusModerate)
+        else if (hitpoints > statusCritical && hitpoints < statusModerate)
         {
-            healthStatus.color = Color.yellow;
+            return Color.yellow;
         }
-        else if(hitpoints > 0 && hitpoints < statusCritical)
+        else if (hitpoints > 0 && hitpoints < statusCritical)
         {
-            healthStatus.color = Color.red;
+            return Color.red;
         }
+
+        return Color.gray;
     }
 }
