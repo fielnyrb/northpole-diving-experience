@@ -9,12 +9,14 @@ public class StatusControl : MonoBehaviour
     public Image healthStatus;
     public PlayerControl player;
 
+    private float hitpoints = 1f;
     private readonly float startDelay = 0.5f;
     private readonly float intervalBetweenExecution = 0.5f;
 
     private readonly float statusGood = 1;
     private readonly float statusModerate = 0.60f;
     private readonly float statusCritical = 0.35f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -33,17 +35,18 @@ public class StatusControl : MonoBehaviour
 
     void UpdateStatusBars()
     {
-        oxygenBar.fillAmount -= 0.01f;
+        hitpoints -= 0.01f;
+        oxygenBar.fillAmount = hitpoints;
 
-        if (oxygenBar.fillAmount > statusModerate && oxygenBar.fillAmount < statusGood)
+        if (hitpoints > statusModerate && hitpoints < statusGood)
         {
             healthStatus.color = Color.green;
         }
-        if (oxygenBar.fillAmount > statusCritical && oxygenBar.fillAmount < statusModerate)
+        if (hitpoints > statusCritical && hitpoints < statusModerate)
         {
             healthStatus.color = Color.yellow;
         }
-        else if(oxygenBar.fillAmount > 0 && oxygenBar.fillAmount < statusCritical)
+        else if(hitpoints > 0 && hitpoints < statusCritical)
         {
             healthStatus.color = Color.red;
         }
