@@ -7,6 +7,8 @@ using UnityEngine.Tilemaps;
 public class TestBreakBlocks : MonoBehaviour
 {
     public float timeToBreakIce = 2f;
+    public GameObject player;
+    public float maxDistanceToBreak = 2f;
     private float currentTimeToBreakIce = 0;
     private Vector3Int currentBreakPos;
 
@@ -26,35 +28,38 @@ public class TestBreakBlocks : MonoBehaviour
                     print(hit.collider.name);
                     if(hit.collider.name == "Breakable Grounds")
                     {
-                        Tilemap tilemap = hit.collider.GetComponent<Tilemap>();
-
-                        Vector2 extraOffset = new Vector2();
-
-                        if(hit.point.y < 0)
+                        if((player.transform.position - mousePosition).magnitude < maxDistanceToBreak)
                         {
-                            extraOffset.y = -1;
-                        }
-                        if (hit.point.x < 0)
-                        {
-                            extraOffset.x = -1;
-                        }
+                            Tilemap tilemap = hit.collider.GetComponent<Tilemap>();
 
-                        Vector3Int newBreakPos = new Vector3Int((int)hit.point.x + (int)extraOffset.x, (int)hit.point.y + (int)extraOffset.y, 0);
+                            Vector2 extraOffset = new Vector2();
 
-                        if (currentBreakPos != newBreakPos)
-                        {
-                            currentTimeToBreakIce = 0;
-                        }
-                        else
-                        {
-                            currentTimeToBreakIce += Time.deltaTime;
-                        }
+                            if(hit.point.y < 0)
+                            {
+                                extraOffset.y = -1;
+                            }
+                            if (hit.point.x < 0)
+                            {
+                                extraOffset.x = -1;
+                            }
 
-                        currentBreakPos = newBreakPos;
+                            Vector3Int newBreakPos = new Vector3Int((int)hit.point.x + (int)extraOffset.x, (int)hit.point.y + (int)extraOffset.y, 0);
 
-                        if(currentTimeToBreakIce >= timeToBreakIce)
-                        {
-                            tilemap.SetTile(currentBreakPos,null);
+                            if (currentBreakPos != newBreakPos)
+                            {
+                                currentTimeToBreakIce = 0;
+                            }
+                            else
+                            {
+                                currentTimeToBreakIce += Time.deltaTime;
+                            }
+
+                            currentBreakPos = newBreakPos;
+
+                            if(currentTimeToBreakIce >= timeToBreakIce)
+                            {
+                                tilemap.SetTile(currentBreakPos,null);
+                            }
                         }
                     }
                 }
