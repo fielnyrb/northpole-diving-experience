@@ -28,7 +28,7 @@ public class TestBreakBlocks : MonoBehaviour
                     print(hit.collider.name);
                     if(hit.collider.name == "Breakable Grounds")
                     {
-                        if((player.transform.position - mousePosition).magnitude < maxDistanceToBreak)
+                        if(((Vector2)player.transform.position - (Vector2)mousePosition).magnitude < maxDistanceToBreak)
                         {
                             Tilemap tilemap = hit.collider.GetComponent<Tilemap>();
 
