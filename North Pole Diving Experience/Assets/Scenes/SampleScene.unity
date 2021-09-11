@@ -1051,5 +1051,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scubadiver Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7841635418990323062, guid: c25aebd852cdcf9449b772f40dc7f1a7, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c25aebd852cdcf9449b772f40dc7f1a7, type: 3}
