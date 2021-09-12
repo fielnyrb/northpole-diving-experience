@@ -116,4 +116,14 @@ public class StatusControl : MonoBehaviour
     {
         instance = null;
     }
+
+    public bool CanWinLevel()
+    {
+        return crystalInLevel == crystalCollected;
+    }
+
+    public void LevelComplete()
+    {
+        CancelInvoke();
+    }
 }
