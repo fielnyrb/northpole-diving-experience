@@ -6,6 +6,7 @@ public class StartAnimationFunctions : MonoBehaviour
 {
     public GameObject playerGameObject;
     public AudioSource splashSound;
+    public AudioSource levelMusic;
 
     public void PlayerStart()
     {
@@ -16,5 +17,10 @@ public class StartAnimationFunctions : MonoBehaviour
     public void PlaySplashSound()
     {
         splashSound.Play();
+    }
+
+    public void PlayMusic()
+    {
+        levelMusic.Play();
     }
 }
