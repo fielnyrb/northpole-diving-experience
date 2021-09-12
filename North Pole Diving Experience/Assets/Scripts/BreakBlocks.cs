@@ -13,6 +13,7 @@ public class BreakBlocks : MonoBehaviour
     public float maxDistanceToBreak = 2f;
     private float currentTimeToBreakIce = 0;
     private Vector3Int currentBreakPos;
+    public AudioSource iceBreakSound;
 
     private void Start()
     {
@@ -68,6 +69,7 @@ public class BreakBlocks : MonoBehaviour
                             if(currentTimeToBreakIce >= timeToBreakIce)
                             {
                                 tilemap.SetTile(currentBreakPos,null);
+                                iceBreakSound.Play();
                                 currentTimeToBreakIce = 0;
                             }
                         }
