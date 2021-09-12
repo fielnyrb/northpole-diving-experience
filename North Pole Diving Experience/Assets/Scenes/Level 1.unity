@@ -69826,6 +69826,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: shark
       objectReference: {fileID: 0}
+    - target: {fileID: 1994769767096140035, guid: 795c067a61e95f843a9321bdf10fa0da, type: 3}
+      propertyPath: m_TagString
+      value: shark
+      objectReference: {fileID: 0}
     - target: {fileID: 3704893412586677703, guid: 795c067a61e95f843a9321bdf10fa0da, type: 3}
       propertyPath: m_RootOrder
       value: 1

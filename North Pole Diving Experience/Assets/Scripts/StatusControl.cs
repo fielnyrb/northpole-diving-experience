@@ -19,14 +19,12 @@ public class StatusControl : MonoBehaviour
     private int crystalInLevel = 0;
     private int crystalCollected = 0;
 
-    private float hitpoints = 1f;
     private readonly float startDelay = 0.5f;
     private readonly float intervalBetweenExecution = 0.5f;
 
     private readonly float statusGood = 1;
     private readonly float statusModerate = 0.60f;
     private readonly float statusCritical = 0.35f;
-
 
     // Start is called before the first frame update
     void Awake()
@@ -51,21 +49,23 @@ public class StatusControl : MonoBehaviour
     {
         if (player.isBitten)
         {
-            hitpoints -= 10f;
             player.isBitten = false;
+            oxygenBar.fillAmount = oxygenBar.fillAmount - 0.4f;
+        }
+        if(oxygenBar.fillAmount <= 0)
+        {
+            print("Dead");
         }
     }
 
     void UpdateStatusBars()
     {
-        //hitpoints -= 0.01f;
-        //oxygenBar.fillAmount = hitpoints;
         oxygenBar.fillAmount = oxygenBar.fillAmount - 0.01f;
 
-        healthStatus.color = UpdateHealthStatusColors();
+        healthStatus.color = UpdateHealthStatusColors(oxygenBar.fillAmount);
     }
 
-    private Color UpdateHealthStatusColors()
+    private Color UpdateHealthStatusColors(float hitpoints)
     {
         if (hitpoints > statusModerate && hitpoints < statusGood)
         {
