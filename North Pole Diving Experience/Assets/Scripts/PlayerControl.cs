@@ -86,7 +86,6 @@ public class PlayerControl : MonoBehaviour
     {
         if(collision.tag == "Air")
         {
-            print(StatusControl.Instance());
             StatusControl.Instance().AddOxygen(0.01f);
         }
     }

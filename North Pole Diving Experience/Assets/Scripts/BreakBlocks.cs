@@ -34,8 +34,7 @@ public class BreakBlocks : MonoBehaviour
             {
                 if (hit.collider != null)
                 {
-                    print(hit.collider.name);
-                    if(hit.collider.name == "Breakable Grounds")
+                    if(hit.collider.CompareTag("Breakable Grounds"))
                     {
                         if(((Vector2)thePlayer.transform.position - (Vector2)mousePosition).magnitude < maxDistanceToBreak)
                         {
@@ -84,7 +83,7 @@ public class BreakBlocks : MonoBehaviour
                             if (currentTimeToBreakIce >= timeToBreakIce)
                             {
                                 StatusControl.Instance().BreakCrystal();
-                                Destroy(hit.collider.gameObject);
+                                hit.collider.gameObject.SetActive(false);
                             }
                         }
                     }
