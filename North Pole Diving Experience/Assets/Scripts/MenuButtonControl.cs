@@ -11,7 +11,7 @@ public class MenuButtonControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        button.onClick.AddListener(goToGame);
+
     }
 
     // Update is called once per frame
@@ -19,15 +19,19 @@ public class MenuButtonControl : MonoBehaviour
     {
 
     }
-    void goToGame()
+
+    public void GoToCredits()
     {
-        if (button.tag == "StartButton")
-        {
-            SceneManager.LoadScene("Level 1");
-        }
-        else if (button.tag == "ExitButton")
-        {
-            Application.Quit();
-        }
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Level 1");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
