@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7536282209755284062}
   - component: {fileID: 7536282209755284063}
   - component: {fileID: 7536282209755284035}
+  - component: {fileID: 677657164405146484}
   m_Layer: 0
   m_Name: Crystal (2)
   m_TagString: Crystal
@@ -139,6 +140,22 @@ MonoBehaviour:
   audioSource: {fileID: 7536282210829990533}
   minPitch: 1
   maxPitch: 2
+--- !u!114 &677657164405146484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7536282209755284060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b384fa264ec8194e88013a9a0fab06d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crystalVariations:
+  - {fileID: 21300000, guid: 68d335da394a1c74799852947023b9e0, type: 3}
+  - {fileID: 21300000, guid: 2b5117f622abc81449e2afe2b5e3b1a2, type: 3}
+  - {fileID: 21300000, guid: b7f88eb4d920b5f4bbb721cc6730a0e9, type: 3}
 --- !u!1 &7536282210287655200
 GameObject:
   m_ObjectHideFlags: 0

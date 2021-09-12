@@ -17,6 +17,7 @@ public class StatusControl : MonoBehaviour
     public Text crystalInfo;
     public PlayerControl player;
     public Image DarknessOfDeath;
+    public AudioSource gameOverSound;
 
     private int crystalInLevel = 0;
     private int crystalCollected = 0;
@@ -57,12 +58,12 @@ public class StatusControl : MonoBehaviour
         if(oxygenBar.fillAmount <= 0)
         {
             StartCoroutine(FadeToBlack());
-            SceneManager.LoadScene("GameOver");
         }
     }
 
     private IEnumerator FadeToBlack(int fadeSpeed = 5)
     {
+        gameOverSound.Play();
         Color objectColor = DarknessOfDeath.color;
         float fadeAmount;
         while(DarknessOfDeath.color.a < 1)
@@ -74,6 +75,7 @@ public class StatusControl : MonoBehaviour
             yield return null;
 
         }
+        SceneManager.LoadScene("GameOver");
     }
 
     void UpdateStatusBars()

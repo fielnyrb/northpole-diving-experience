@@ -26,12 +26,12 @@ public class SharkControl : MonoBehaviour
         if(transform.position.x > turnaroundPosition)
         {
             movementDirection = Vector2.left;
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = false;
         }
         else if(transform.position.x < startingPosition)
         {
             movementDirection = Vector2.right;
-            spriteRenderer.flipX = false;
+            spriteRenderer.flipX = true;
         }
 
         transform.Translate(movementDirection * Time.deltaTime * speed);
