@@ -193,7 +193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Byrja sp\xE6li\xF0"
+  m_Text: Start
 --- !u!222 &363623668
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -272,7 +272,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Undantekstur
+  m_Text: Credits
 --- !u!222 &376796981
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -675,7 +675,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Far \xFAr sp\xE6linum"
+  m_Text: Exit
 --- !u!222 &1030768480
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -970,7 +970,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Nor\xF0p\xF3la kanningarfer\xF0in"
+  m_Text: Polardiver
 --- !u!222 &1790400541
 CanvasRenderer:
   m_ObjectHideFlags: 0

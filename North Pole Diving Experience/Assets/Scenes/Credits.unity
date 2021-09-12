@@ -267,9 +267,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.39
-  m_Text: "Hemming Petersen: Mennari / Verk\xE6tlanarlei\xF0ari\nHelena Michala Egholm
-    Leo: Grafikari\nEirikur Biskopst\xF8: T\xF3nleikur / Lj\xF3\xF0\nBrynleif Andreasen:
-    Mennari / T\xF3nleikur"
+  m_Text: "Hemming Petersen: Development / Project lead\nHelena Michala Egholm Leo:
+    Design\nEirikur Biskopst\xF8: Music / Sound design\nBrynleif Andreasen: Development
+    / Music"
 --- !u!222 &635844261
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -564,7 +564,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Far aftur
+  m_Text: Go back
 --- !u!222 &1272549133
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -643,7 +643,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lilla toymi
+  m_Text: Purple Team
 --- !u!222 &1560319131
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -838,7 +838,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Undantekstur
+  m_Text: Credits
 --- !u!222 &2025534640
 CanvasRenderer:
   m_ObjectHideFlags: 0

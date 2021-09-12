@@ -610,7 +610,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "N\xE6sti b\xE1ni"
+  m_Text: Next Level
 --- !u!222 &400352981
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1356,7 +1356,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Tillukku, t\xFA hevur vunni\xF0 hendan b\xE1nan."
+  m_Text: Level Complete
 --- !u!222 &631746585
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1920,7 +1920,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Aftur til h\xF8vu\xF0s meny"
+  m_Text: Back to Menu
 --- !u!222 &717334194
 CanvasRenderer:
   m_ObjectHideFlags: 0

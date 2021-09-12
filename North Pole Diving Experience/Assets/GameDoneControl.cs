@@ -24,6 +24,6 @@ public class GameDoneControl : MonoBehaviour
 
     public void ExitGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene("Menu");
     }
 }
