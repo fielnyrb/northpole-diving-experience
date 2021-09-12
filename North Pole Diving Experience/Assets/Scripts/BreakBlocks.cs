@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
-public class TestBreakBlocks : MonoBehaviour
+public class BreakBlocks : MonoBehaviour
 {
     public float timeToBreakIce = 2f;
-    public GameObject player;
+    public GameObject thePlayer;
     public float maxDistanceToBreak = 2f;
     private float currentTimeToBreakIce = 0;
     private Vector3Int currentBreakPos;
@@ -21,6 +21,7 @@ public class TestBreakBlocks : MonoBehaviour
         RaycastHit2D[] hits = Physics2D.RaycastAll(mousePosition, Vector2.zero);
 
         if(Mouse.current.leftButton.isPressed)
+        {
             foreach(var hit in hits)
             {
                 if (hit.collider != null)
@@ -28,7 +29,7 @@ public class TestBreakBlocks : MonoBehaviour
                     print(hit.collider.name);
                     if(hit.collider.name == "Breakable Grounds")
                     {
-                        if(((Vector2)player.transform.position - (Vector2)mousePosition).magnitude < maxDistanceToBreak)
+                        if(((Vector2)thePlayer.transform.position - (Vector2)mousePosition).magnitude < maxDistanceToBreak)
                         {
                             Tilemap tilemap = hit.collider.GetComponent<Tilemap>();
 
@@ -59,11 +60,31 @@ public class TestBreakBlocks : MonoBehaviour
                             if(currentTimeToBreakIce >= timeToBreakIce)
                             {
                                 tilemap.SetTile(currentBreakPos,null);
+                                currentTimeToBreakIce = 0;
+                            }
+                        }
+                    }
+
+                    if(hit.collider.CompareTag("Crystal"))
+                    {
+                        if (((Vector2)thePlayer.transform.position - (Vector2)mousePosition).magnitude < maxDistanceToBreak)
+                        {
+                            currentTimeToBreakIce += Time.deltaTime;
+
+                            if (currentTimeToBreakIce >= timeToBreakIce)
+                            {
+                                StatusControl.Instance().BreakCrystal();
+                                Destroy(hit.collider.gameObject);
                             }
                         }
                     }
                 }
             }
+        }
+        else
+        {
+            currentTimeToBreakIce = 0;
+        }
     }
 
     //private void OnTriggerStay2D(Collider2D collision)

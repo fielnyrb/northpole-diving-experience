@@ -256,7 +256,7 @@ BuoyancyEffector2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_SurfaceLevel: 0
-  m_Density: 2
+  m_Density: 1
   m_LinearDrag: 5
   m_AngularDrag: 5
   m_FlowAngle: 0
@@ -991,18 +991,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7841635418990323048, guid: c25aebd852cdcf9449b772f40dc7f1a7, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 519420031}
-    - target: {fileID: 7841635418990323049, guid: c25aebd852cdcf9449b772f40dc7f1a7, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7841635418990323049, guid: c25aebd852cdcf9449b772f40dc7f1a7, type: 3}
-      propertyPath: m_GravityScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7841635418990323051, guid: c25aebd852cdcf9449b772f40dc7f1a7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1050,10 +1038,6 @@ PrefabInstance:
     - target: {fileID: 7841635418990323053, guid: c25aebd852cdcf9449b772f40dc7f1a7, type: 3}
       propertyPath: m_Name
       value: Scubadiver Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7841635418990323062, guid: c25aebd852cdcf9449b772f40dc7f1a7, type: 3}
-      propertyPath: speed
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c25aebd852cdcf9449b772f40dc7f1a7, type: 3}
