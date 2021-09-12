@@ -15,6 +15,7 @@ public class StatusControl : MonoBehaviour
     public Image healthStatus;
     public Text crystalInfo;
     public PlayerControl player;
+    public Image DarknessOfDeath;
 
     private int crystalInLevel = 0;
     private int crystalCollected = 0;
@@ -54,7 +55,22 @@ public class StatusControl : MonoBehaviour
         }
         if(oxygenBar.fillAmount <= 0)
         {
-            print("Dead");
+            StartCoroutine(FadeToBlack());
+        }
+    }
+
+    private IEnumerator FadeToBlack(int fadeSpeed = 5)
+    {
+        Color objectColor = DarknessOfDeath.color;
+        float fadeAmount;
+        while(DarknessOfDeath.color.a < 1)
+        {
+            fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
+
+            objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+            DarknessOfDeath.color = objectColor;
+            yield return null;
+
         }
     }
 

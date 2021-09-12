@@ -59,3 +59,9 @@ TagManager:
   - name: Air holes
     uniqueID: 376475447
     locked: 0
+  - name: UI
+    uniqueID: 1607805189
+    locked: 0
+  - name: Fade to black
+    uniqueID: 2632840131
+    locked: 0
