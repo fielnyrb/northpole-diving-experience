@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - shark
+  - Air
+  - Crystal
   layers:
   - Default
   - TransparentFX
@@ -44,4 +46,10 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Water Layer
+    uniqueID: 245990143
+    locked: 0
+  - name: Air holes
+    uniqueID: 376475447
     locked: 0

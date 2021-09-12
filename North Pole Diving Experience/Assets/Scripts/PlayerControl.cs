@@ -8,6 +8,7 @@ public class PlayerControl : MonoBehaviour
 
     public float speed = 1f;
     public bool isBitten = false;
+    public SpriteRenderer spriteRenderer;
 
     private Rigidbody2D rigidBody;
     private float movementX, movementY;
@@ -39,7 +40,7 @@ public class PlayerControl : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, zAxis);
         }
 
-        //if(norm.x < 0 && !isFlipped)
+        //if (norm.x < 0 && !isFlipped)
         //{
         //    flip();
         //}
@@ -48,7 +49,14 @@ public class PlayerControl : MonoBehaviour
         //    flip();
         //}
 
-
+        if ((transform.eulerAngles.z < 90 || transform.eulerAngles.z > 270) && isFlipped)
+        {
+            flip();
+        }
+        if (transform.eulerAngles.z > 90 && transform.eulerAngles.z < 270 && !isFlipped)
+        {
+            flip();
+        }
     }
 
     private void OnMove(InputValue movementValue)
@@ -61,7 +69,8 @@ public class PlayerControl : MonoBehaviour
 
     private void flip()
     {
-        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        //transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        spriteRenderer.flipY = !spriteRenderer.flipY;
         isFlipped = !isFlipped;
     }
 
@@ -70,6 +79,15 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.tag == "shark")
         {
             isBitten = true;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.tag == "Air")
+        {
+            print(StatusControl.Instance());
+            StatusControl.Instance().AddOxygen(0.01f);
         }
     }
 }

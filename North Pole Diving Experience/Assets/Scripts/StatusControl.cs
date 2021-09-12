@@ -5,9 +5,19 @@ using UnityEngine.UI;
 
 public class StatusControl : MonoBehaviour
 {
+    private static StatusControl instance;
+    public static StatusControl Instance()
+    {
+        return instance;
+    }
+
     public Image oxygenBar;
     public Image healthStatus;
+    public Text crystalInfo;
     public PlayerControl player;
+
+    private int crystalInLevel = 0;
+    private int crystalCollected = 0;
 
     private float hitpoints = 1f;
     private readonly float startDelay = 0.5f;
@@ -19,9 +29,21 @@ public class StatusControl : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        InvokeRepeating("UpdateStatusBars", startDelay, intervalBetweenExecution);
+        if(instance == null)
+        {
+            instance = this;
+
+            crystalInLevel = GameObject.FindGameObjectsWithTag("Crystal").Length;
+            crystalInfo.text = crystalCollected + " / " + crystalInLevel;
+
+            InvokeRepeating("UpdateStatusBars", startDelay, intervalBetweenExecution);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -36,8 +58,9 @@ public class StatusControl : MonoBehaviour
 
     void UpdateStatusBars()
     {
-        hitpoints -= 0.01f;
-        oxygenBar.fillAmount = hitpoints;
+        //hitpoints -= 0.01f;
+        //oxygenBar.fillAmount = hitpoints;
+        oxygenBar.fillAmount = oxygenBar.fillAmount - 0.01f;
 
         healthStatus.color = UpdateHealthStatusColors();
     }
@@ -58,5 +81,21 @@ public class StatusControl : MonoBehaviour
         }
 
         return Color.gray;
+    }
+
+    public void AddOxygen(float amount)
+    {
+        oxygenBar.fillAmount = oxygenBar.fillAmount + amount;
+    }
+
+    public void BreakCrystal()
+    {
+        crystalCollected++;
+        crystalInfo.text = crystalCollected + " / " + crystalInLevel;
+    }
+
+    private void OnDestroy()
+    {
+        instance = null;
     }
 }
