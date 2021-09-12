@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StatusControl : MonoBehaviour
 {
@@ -56,6 +57,7 @@ public class StatusControl : MonoBehaviour
         if(oxygenBar.fillAmount <= 0)
         {
             StartCoroutine(FadeToBlack());
+            SceneManager.LoadScene("GameOver");
         }
     }
 
