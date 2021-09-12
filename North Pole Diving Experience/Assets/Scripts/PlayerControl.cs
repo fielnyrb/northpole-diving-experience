@@ -23,7 +23,7 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     float zVelocity;
@@ -86,7 +86,6 @@ public class PlayerControl : MonoBehaviour
     {
         if(collision.tag == "Air")
         {
-            print(StatusControl.Instance());
             StatusControl.Instance().AddOxygen(0.01f);
         }
     }

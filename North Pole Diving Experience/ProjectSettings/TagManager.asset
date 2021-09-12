@@ -9,6 +9,7 @@ TagManager:
   - Crystal
   - ExitButton
   - StartButton
+  - Breakable Grounds
   layers:
   - Default
   - TransparentFX
@@ -48,6 +49,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Behind Water
+    uniqueID: 2014688271
     locked: 0
   - name: Water Layer
     uniqueID: 245990143
