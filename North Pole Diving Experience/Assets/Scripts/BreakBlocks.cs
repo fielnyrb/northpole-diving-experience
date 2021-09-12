@@ -3,14 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
+using UnityEngine.Animations;
 
 public class BreakBlocks : MonoBehaviour
 {
     public float timeToBreakIce = 2f;
     public GameObject thePlayer;
+    private Animator playerAnimator;
     public float maxDistanceToBreak = 2f;
     private float currentTimeToBreakIce = 0;
     private Vector3Int currentBreakPos;
+
+    private void Start()
+    {
+        playerAnimator = thePlayer.GetComponentInChildren<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -22,6 +29,7 @@ public class BreakBlocks : MonoBehaviour
 
         if(Mouse.current.leftButton.isPressed)
         {
+            bool breakingSomething = false;
             foreach(var hit in hits)
             {
                 if (hit.collider != null)
@@ -31,6 +39,7 @@ public class BreakBlocks : MonoBehaviour
                     {
                         if(((Vector2)thePlayer.transform.position - (Vector2)mousePosition).magnitude < maxDistanceToBreak)
                         {
+                            breakingSomething = true;
                             Tilemap tilemap = hit.collider.GetComponent<Tilemap>();
 
                             Vector2 extraOffset = new Vector2();
@@ -69,6 +78,7 @@ public class BreakBlocks : MonoBehaviour
                     {
                         if (((Vector2)thePlayer.transform.position - (Vector2)mousePosition).magnitude < maxDistanceToBreak)
                         {
+                            breakingSomething = true;
                             currentTimeToBreakIce += Time.deltaTime;
 
                             if (currentTimeToBreakIce >= timeToBreakIce)
@@ -80,10 +90,12 @@ public class BreakBlocks : MonoBehaviour
                     }
                 }
             }
+            playerAnimator.SetBool("Breaking", breakingSomething);
         }
         else
         {
             currentTimeToBreakIce = 0;
+            playerAnimator.SetBool("Breaking", false);
         }
     }
 
